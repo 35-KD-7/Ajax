@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./js1.js"></script>
+    <script src="./js2.js"></script>
+    <script>
+      js1.fn1();
+      js2.fn1();
+
+      let obj = {
+        name: "xlf",
+        age: 22,
+        ip: this,
+        getIP() {
+          return this.ip;
+        },
+      };
+
+      console.log(obj.getIP());
+    </script>
+  </body>
+</html>
