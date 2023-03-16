@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 创建一个 XHR 对象
+      const xhr = new XMLHttpRequest();
+      // 初始化，配置参数
+      xhr.open("get", "http://www.liulongbin.top:3006/api/getbooks");
+      // 发出请求
+      xhr.send();
+      // 绑定监听事件
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          console.log(xhr.responseText);
+        }
+      };
+    </script>
+  </body>
+</html>

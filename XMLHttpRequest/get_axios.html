@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点击发起请求</buttonm>
+    
+    <script>
+        document.querySelector('#btn').addEventListener('click', ()=>{
+            const url = 'http://www.liulongbin.top:3006/api/get';
+            const data = {name:'xlf',age:22};
+            axios.get(url, {params:data}).then(function(res){
+                console.log(res);
+                console.log(res.data);
+            })
+        })
+    </script>
+</body>
+</html>

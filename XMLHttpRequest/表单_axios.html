@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form1">
+      <!-- autocomplete="off" 不允许表单自动填充-->
+      <input type="text" name="uname" autocomplete="off" />
+      <input type="password" name="upwd" />
+      <button type="submit" id="btn">提交数据</button>
+    </form>
+    <script>
+      const form = document.querySelector("#form1");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const fd = new FormData(form);
+
+        axios({
+          method: "post",
+          url: "http://www.liulongbin.top:3006/api/formdata",
+          data: fd,
+        }).then((res) => {
+          console.log(res.data);
+        });
+      });
+    </script>
+  </body>
+</html>

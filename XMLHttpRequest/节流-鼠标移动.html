@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./jQuery.js"></script>
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      #pic1 {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../头像.jpg" alt="" width="100" id="pic1" />
+
+    <script>
+      $(function () {
+        var pic = $("#pic1");
+        // 设置节流阀
+        var timer = null;
+        $(document).on("mousemove", function (e) {
+          if (timer) {
+            return;
+          }
+          timer = setTimeout(function () {
+            $(pic)
+              .css("top", e.pageY + "px")
+              .css("left", e.pageX + "px");
+            console.log(e.pageX, e.pageY);
+            timer = null;
+          }, 16);
+        });
+      });
+    </script>
+
+    <!-- //在每次鼠标移动过程中，我们都会获得最新的鼠标坐标，
+    把这个x和y坐标做为图片的top和left 值就可以移动图片
+    <script>
+      var pic = document.querySelector("#pic1");
+
+      document.addEventListener("mousemove", function (e) {
+        var x = e.pageX;
+        var y = e.pageY;
+        console.log("x坐标是" + x, "y坐标是" + y);
+        pic.style.left = x - 50 + "px";
+        pic.style.top = y - 40 + "px";
+      });
+    </script> -->
+  </body>
+</html>
