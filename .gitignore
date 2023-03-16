@@ -3,3 +3,6 @@ node_modules/
 
 # 忽略当前目录下的.js文件
 /*.js
+
+# demo.js除外
+!demo.js
